@@ -10,9 +10,11 @@ public class NumberGenerator {
 
     public List<Integer> createRandomNumbers() {
         List<Integer> result = new ArrayList<>();
-        for (int i = 0; i < NUMBER_LENGTH; i++) {
+       while (result.size() < NUMBER_LENGTH) {
             int randomNumber = Randoms.pickNumberInRange(1, 9);
-            result.add(randomNumber);
+            if (!result.contains(randomNumber)) {
+                result.add(randomNumber);
+            }
         }
         return result;
     }
