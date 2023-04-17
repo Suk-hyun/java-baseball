@@ -5,7 +5,7 @@ import java.util.List;
 
 public class InputConvertor {
 
-    public static List<Integer> convert(String input) {
+    public static List<Integer> convertToIntList(String input) {
         String[] splitInput = input.split("");
         List<Integer> intList = new ArrayList<>();
 
@@ -13,7 +13,10 @@ public class InputConvertor {
             int toInt = Integer.parseInt(str);
             intList.add(toInt);
         }
-
         return intList;
+    }
+
+    public static int convertToInt(String input) {
+        return Integer.parseInt(input);
     }
 }
