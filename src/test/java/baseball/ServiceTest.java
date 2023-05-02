@@ -1,5 +1,6 @@
 package baseball;
 
+import baseball.service.Service;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -50,7 +51,7 @@ class ServiceTest {
     }
 
     @ParameterizedTest
-    @CsvSource(value = {"1,2,3,3", "1,3,2,1", "1,2,4,2", "3,1,2,0", "4,5,6,0"}, delimiter = ',')
+    @CsvSource(value = {"1,2,3,0", "1,3,2,2", "1,2,4,0", "3,1,2,3", "4,5,6,0"}, delimiter = ',')
     void countBallTest(int userNum1, int userNum2, int userNum3, int expected) {
         List<Integer> userNumbers = List.of(userNum1, userNum2, userNum3);
 
