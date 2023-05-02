@@ -1,4 +1,4 @@
-package baseball;
+package baseball.domain;
 
 import java.util.List;
 
@@ -8,6 +8,7 @@ public class Computer {
 
     public Computer(List<Integer> numbers) {
         this.numbers = numbers;
+
     }
 
     public int countSameNumber(List<Integer> userNumbers) {
@@ -23,10 +24,14 @@ public class Computer {
     public int countSameNumberInSameIndex(List<Integer> userNumbers) {
         int result = 0;
         for (int i = 0; i < userNumbers.size(); i++) {
-            if (numbers.get(i) == userNumbers.get(i)) {
-                result ++;
+            if (isSameNumberInSameIndex(userNumbers, i)) {
+                result++;
             }
         }
         return result;
+    }
+
+    private boolean isSameNumberInSameIndex(List<Integer> userNumbers, int i) {
+        return numbers.get(i) == userNumbers.get(i);
     }
 }
