@@ -1,5 +1,6 @@
 package baseball;
 
+import baseball.utils.InputConvertor;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -17,7 +18,7 @@ class InputConvertorTest {
     @DisplayName("문자열 값이 Integer 타입으로 변환 되었는지 테스트")
     void convertTest() {
         String input = "123";
-        List<Integer> integerList = InputConvertor.convert(input);
+        List<Integer> integerList = InputConvertor.convertToIntList(input);
 
         for (Integer integer : integerList) {
             assertThat(integer.getClass()).isEqualTo(Integer.class);
@@ -28,7 +29,7 @@ class InputConvertorTest {
     @CsvSource(value = {"123", "456", "789"})
     @DisplayName("문자열 값이 Integer 타입으로 변환 되었는지 테스트")
     void convertTest2(String input) {
-        List<Integer> integerList = InputConvertor.convert(input);
+        List<Integer> integerList = InputConvertor.convertToIntList(input);
 
         for (Integer integer : integerList) {
             assertThat(integer.getClass()).isEqualTo(Integer.class);
