@@ -15,6 +15,9 @@ public class Controller {
         while (true) {
             OutputView.requestInputMsg();
             String input = InputView.getUserNumbers();
+
+            InGameInputException.checkException(input);
+
             List<Integer> userNumbers = InputConvertor.convertToIntList(input);
 
             int strike = service.countStrike(userNumbers);
@@ -32,6 +35,8 @@ public class Controller {
     public void newGameOrFinishGame() {
         OutputView.endGameMsg();
         String input = InputView.getRestartOrFinish();
+        AfterGameInputException.checkException(input);
+
         int command = InputConvertor.convertToInt(input);
 
         if (command == GameCommand.RESTART.getValue()) {
