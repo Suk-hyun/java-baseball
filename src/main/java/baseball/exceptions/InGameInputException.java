@@ -1,4 +1,4 @@
-package baseball;
+package baseball.exceptions;
 
 import java.util.Arrays;
 
@@ -12,7 +12,7 @@ public class InGameInputException {
         checkDuplicate(input);
     }
 
-    private static void checkDuplicate(String input) {
+    private static void checkDuplicate(String input) throws IllegalArgumentException{
         String[] inputArray = input.split("");
         String[] result = Arrays.stream(inputArray).distinct().toArray(String[]::new);
         if (result.length < NUMBER_LENGTH) {
@@ -20,13 +20,13 @@ public class InGameInputException {
         }
     }
 
-    private static void checkLength(String input) {
+    private static void checkLength(String input) throws IllegalArgumentException{
         if (input.length() != NUMBER_LENGTH) {
             throw new IllegalArgumentException("입력값은 3자리 여야 합니다.");
         }
     }
 
-    private static void checkDigits(String input) {
+    private static void checkDigits(String input) throws IllegalArgumentException{
         for (int i = 0; i < NUMBER_LENGTH; i++) {
             if (!isInRange(input, i)) {
                 throw new IllegalArgumentException("입력값은 1에서 9사이여야 합니다.");
