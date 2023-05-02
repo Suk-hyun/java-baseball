@@ -1,5 +1,14 @@
-package baseball;
+package baseball.controller;
 
+
+import baseball.exceptions.AfterGameInputException;
+import baseball.GameCommand;
+import baseball.exceptions.InGameInputException;
+import baseball.service.Service;
+import baseball.utils.InputConvertor;
+import baseball.utils.NumberGenerator;
+import baseball.view.InputView;
+import baseball.view.OutputView;
 
 import java.util.List;
 
@@ -39,11 +48,9 @@ public class Controller {
 
         int command = InputConvertor.convertToInt(input);
 
-        if (command == GameCommand.RESTART.getValue()) {
+        if (GameCommand.isRestart(command)) {
             setGame();
             playGame();
-        }
-        if (command == GameCommand.QUIT.getValue()) {
         }
     }
 
